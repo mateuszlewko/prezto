@@ -15,7 +15,14 @@ fi
 fpath=("${0:h}/external/src" $fpath)
 
 # Load and initialize the completion system ignoring insecure directories.
-autoload -Uz compinit && compinit -i
+#autoload -Uz compinit && compinit -i
+
+autoload -Uz compinit 
+
+if test `find "/home/mateuszlewko/.zcompdump" -mmin +1440`
+then
+        compinit -i -C;
+fi
 
 #
 # Options

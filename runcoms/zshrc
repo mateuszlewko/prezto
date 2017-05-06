@@ -1,13 +1,26 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+# zsh config
+HISTSIZE=10000
+SAVEHIST=10000
+
+# zsh modules
+MODULES_DIR=~/.zmodules
+
+source $MODULES_DIR/z/z.sh
+source $MODULES_DIR/enhancd/init.sh
+source $MODULES_DIR/up.zsh/up.plugin.zsh
+
+# add paths
+source ~/.zpaths
+
+# pbcopy
+alias pbcopy='clip.exe 2>&1 >/dev/null | grep -v -F "Unable to translate current work"'
+
+# apps 
+eval $(thefuck --alias)
+
+#source ~/.zmodules/prompt_garrett_setup
